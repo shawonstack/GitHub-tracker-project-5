@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Issues Tracker - Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon">
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+  <!-- Navbar -->
+  <nav class="bg-white shadow-sm px-4 py-3 flex items-center justify-between sticky top-0 z-50">
+    <div class="flex items-center gap-2">
+      <img src="./assets/github-logo.png" alt="GitHub" class="w-7 h-7">
+      <span class="font-bold text-gray-800 text-base">GitHub Issues Tracker</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <div class="relative">
+        <input id="searchInput" type="text" placeholder="Search issues..."
+          class="input input-bordered input-sm w-[300] rounded-sm pl-7 bg-gray-50" />
+        <i class="fa-solid fa-magnifying-glass absolute left-2 top-2.5 text-gray-400 text-xs"></i>
+      </div>
+      <button id="searchBtn" class="btn btn-sm btn-primary rounded-sm font-bold">+ New Issue</button>
+    </div>
+  </nav>
+
+</body>
+
+</html>
