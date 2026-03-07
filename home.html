@@ -31,6 +31,95 @@
     </div>
   </nav>
 
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-4 py-6">
+
+    <!-- Tabs -->
+    <div class="flex gap-2 mb-4">
+      <button id="tabAll" onclick="filterIssues('all')"
+        class="tab-active px-5 py-2 rounded-lg text-sm font-semibold transition-all">All</button>
+      <button id="tabOpen" onclick="filterIssues('open')"
+        class="bg-white text-gray-600 px-5 py-2 rounded-lg text-sm font-semibold border border-gray-200 hover:bg-gray-50 transition-all">Open</button>
+      <button id="tabClosed" onclick="filterIssues('closed')"
+        class="bg-white text-gray-600 px-5 py-2 rounded-lg text-sm font-semibold border border-gray-200 hover:bg-gray-50 transition-all">Closed</button>
+    </div>
+
+    <!-- Issues Header -->
+    <div class="bg-white rounded-xl shadow-sm p-4 mb-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="./assets/Aperture.png" class="w-10 h-10" alt="issues icon">
+        <div>
+          <h2 id="issueCount" class="font-bold text-gray-800 text-lg">0 Issues</h2>
+          <p class="text-gray-400 text-sm">Track and manage your project issues</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-4 text-sm">
+        <span class="flex items-center gap-1">
+          <span class="w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span> Open
+        </span>
+        <span class="flex items-center gap-1">
+          <span class="w-2.5 h-2.5 rounded-full bg-purple-500 inline-block"></span> Closed
+        </span>
+      </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loader" class="flex justify-center items-center py-20">
+      <span class="loading loading-spinner loading-lg text-primary"></span>
+    </div>
+
+    <!-- Issues Grid -->
+    <div id="issuesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 hidden"></div>
+
+    <!-- No Results -->
+    <div id="noResults" class="hidden text-center py-16 text-gray-400">
+      <svg class="w-12 h-12 mx-auto mb-3 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0114 0z" />
+      </svg>
+      <p class="font-semibold">No issues found</p>
+    </div>
+
+  </main>
+
+  <!-- Modal -->
+  <dialog id="issueModal" class="modal">
+    <div class="modal-box max-w-2xl rounded-xl">
+      <div id="modalLoader" class="flex justify-center py-10">
+        <span class="loading loading-spinner loading-lg text-primary"></span>
+      </div>
+      <div id="modalContent" class="hidden">
+        <h2 id="modalTitle" class="text-xl font-bold text-gray-800 mb-2"></h2>
+        <div class="flex items-center gap-2 mb-3 flex-wrap">
+          <span id="modalStatus"
+            class="badge badge-success text-white px-3 py-1 rounded-full text-xs font-semibold"></span>
+          <span class="text-gray-400 text-sm">•</span>
+          <span id="modalAuthor" class="text-gray-500 text-sm"></span>
+          <span class="text-gray-400 text-sm">•</span>
+          <span id="modalDate" class="text-gray-500 text-sm"></span>
+        </div>
+        <div id="modalLabels" class="flex flex-wrap gap-2 mb-4"></div>
+        <p id="modalDescription" class="text-gray-600 mb-5 leading-relaxed"></p>
+        <div class="bg-gray-50 rounded-xl p-4 grid grid-cols-2 gap-4">
+          <div>
+            <p class="text-gray-400 text-sm mb-1">Assignee:</p>
+            <p id="modalAssignee" class="font-semibold text-gray-800"></p>
+          </div>
+          <div>
+            <p class="text-gray-400 text-sm mb-1">Priority:</p>
+            <span id="modalPriority" class="badge px-3 py-1 text-xs font-bold"></span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-action">
+        <form method="dialog">
+          <button class="btn btn-primary rounded-lg px-8">Close</button>
+        </form>
+      </div>
+    </div>
+    <form method="dialog" class="modal-backdrop"><button>close</button></form>
+  </dialog>
+  <script src="homepage.js"></script>
 </body>
 
 </html>
