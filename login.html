@@ -4,11 +4,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>GitHub Issues Tracker</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon">
 </head>
 
-<body>
+<body class="bg-gray-200 flex items-center justify-center min-h-screen">
+  <div class="card w-96 bg-white shadow-xl p-6">
 
+    <img class="w-24 mx-auto" src="./assets/github-logo.png" alt="">
+
+    <h1 class="text-[#1F2937] font-bold text-center mt-3">
+      GitHub Issues Tracker
+    </h1>
+
+    <p class="text-center text-gray-500 mb-4">
+      Sign in to manage your issues
+    </p>
+
+    <form id="loginForm">
+
+      <label class="label">Username</label>
+      <input id="username" type="text" placeholder="Enter Username" class="input input-bordered w-full rounded-lg" />
+
+      <p class="text-xs text-purple-500 mt-1">Default: admin</p>
+
+      <label class="label mt-3">Password</label>
+      <input id="password" type="password" placeholder="Enter Password"
+        class="input input-bordered w-full rounded-lg" />
+
+      <p class="text-xs text-purple-500 mt-1">Default: admin123</p>
+
+      <button class="btn btn-primary w-full mt-4 rounded-lg">
+        Sign In
+      </button>
+
+    </form>
+
+    <div class="divider">OR</div>
+    <div class="text-center text-xs text-gray-500 mb-2">Demo Credentials:</div>
+
+    <div class="bg-gray-100 p-3 rounded text-center text-sm">
+      <p><b>Username:</b> admin</p>
+      <p><b>Password:</b> admin123</p>
+    </div>
+
+  </div>
+
+
+
+
+  <script src="login.js"></script>
 </body>
 
 </html>
