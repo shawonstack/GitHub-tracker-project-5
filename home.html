@@ -11,24 +11,72 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon">
+  <style>
+    .card-open {
+      border-top: 4px solid #00A96E;
+    }
+
+    .card-closed {
+      border-top: 4px solid #7C3AED;
+    }
+
+    .tab-active {
+      background-color: #4A00FF;
+      color: white;
+    }
+
+    .priority-high {
+      background-color: #FEE2E2;
+      color: #EF4444;
+    }
+
+    .priority-medium {
+      background-color: #FEF9C3;
+      color: #CA8A04;
+    }
+
+    .priority-low {
+      background-color: #DCFCE7;
+      color: #16A34A;
+    }
+
+    .label-bug {
+      background-color: #FEE2E2;
+      color: #DC2626;
+    }
+
+    .label-enhancement {
+      background-color: #DCFCE7;
+      color: #16A34A;
+    }
+
+    .label-help {
+      background-color: #FEF9C3;
+      color: #CA8A04;
+    }
+
+    .label-default {
+      background-color: #E0E7FF;
+      color: #4338CA;
+    }
+  </style>
 </head>
 
 <body class="bg-gray-100 min-h-screen">
+
   <!-- Navbar -->
-  <nav
-    class="navbar bg-base-100 shadow-sm px-4 md:px-20 py-3 flex flex-wrap md:flex-nowrap justify-center md:justify-between items-center">
+  <nav class="bg-white shadow-sm px-12 py-5 flex items-center justify-between sticky top-0 z-50">
     <div class="flex items-center gap-2">
       <img src="./assets/github-logo.png" alt="GitHub" class="w-7 h-7">
-      <span class="font-semibold text-2xl">GitHub Issues Tracker</span>
+      <span class="font-bold text-gray-800 text-2xl">GitHub Issues Tracker</span>
     </div>
-    <div class="flex gap-3">
-      <label class="input input-bordered flex items-center gap-2 input-btn">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" class="grow" placeholder="Search issues..." />
-      </label>
-      <button class="btn btn-primary inputValueBtn"><i class="fa-solid fa-plus"></i> New Issue</button>
-    </div>
+    <div class="flex items-center gap-2">
+      <div class="relative ">
+        <input id="searchInput" type="text" placeholder="Search issues..."
+          class="input input-bordered input-lg w-[300] rounded-sm pl-7 bg-gray-50" />
+        <i class="fa-solid fa-magnifying-glass absolute left-2 top-5 text-gray-400 text-xs"></i>
+      </div>
+      <button id="searchBtn" class="btn btn-lg btn-primary rounded-sm font-bold">+ New Issue</button>
     </div>
   </nav>
 
@@ -38,11 +86,11 @@
     <!-- Tabs -->
     <div class="flex gap-2 mb-4">
       <button id="tabAll" onclick="filterIssues('all')"
-        class="tab-active px-5 py-2 rounded-lg text-sm font-semibold transition-all">All</button>
+        class="tab-active px-5 py-2 rounded-sm text-sm font-semibold transition-all">All</button>
       <button id="tabOpen" onclick="filterIssues('open')"
-        class="bg-white text-gray-600 px-5 py-2 rounded-lg text-sm font-semibold border border-gray-200 hover:bg-gray-50 transition-all">Open</button>
+        class="bg-white text-gray-600 px-5 py-2 rounded-sm text-sm font-semibold border border-gray-200 hover:bg-gray-50 transition-all">Open</button>
       <button id="tabClosed" onclick="filterIssues('closed')"
-        class="bg-white text-gray-600 px-5 py-2 rounded-lg text-sm font-semibold border border-gray-200 hover:bg-gray-50 transition-all">Closed</button>
+        class="bg-white text-gray-600 px-5 py-2 rounded-sm text-sm font-semibold border border-gray-200 hover:bg-gray-50 transition-all">Closed</button>
     </div>
 
     <!-- Issues Header -->
@@ -55,11 +103,11 @@
         </div>
       </div>
       <div class="flex items-center gap-4 text-sm">
-        <span class="flex items-center gap-1">
-          <span class="w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span> Open
+        <span class="flex items-center gap-1 text-lg">
+          <span class="w-4 h-4 rounded-full bg-green-600 inline-block"></span> Open
         </span>
-        <span class="flex items-center gap-1">
-          <span class="w-2.5 h-2.5 rounded-full bg-purple-500 inline-block"></span> Closed
+        <span class="flex items-center gap-1 text-lg">
+          <span class="w-4 h-4 rounded-full bg-purple-600 inline-block"></span> Closed
         </span>
       </div>
     </div>
@@ -120,7 +168,9 @@
     </div>
     <form method="dialog" class="modal-backdrop"><button>close</button></form>
   </dialog>
+
   <script src="homepage.js"></script>
+
 </body>
 
 </html>
