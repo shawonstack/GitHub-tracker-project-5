@@ -197,32 +197,3 @@ async function openModal(id) {
     console.error('Error fetching issue details:', err);
   }
 }
-
-// ─── Search ───────────────────────────────────────────────────────────────────
-async function doSearch() {
-  const q = document.getElementById('searchInput').value.trim();
-  if (!q) {
-    renderIssues(allIssues);
-    return;
-  }
-  showLoader(true);
-  try {
-    const res = await fetch(API_SEARCH + encodeURIComponent(q));
-    const data = await res.json();
-    const results = data.data || data || [];
-    renderIssues(results);
-  } catch (err) {
-    console.error('Search error:', err);
-  } finally {
-    showLoader(false);
-  }
-}
-
-// ─── Event Listeners ──────────────────────────────────────────────────────────
-document.getElementById('searchBtn').addEventListener('click', doSearch);
-document.getElementById('searchInput').addEventListener('keydown', e => {
-  if (e.key === 'Enter') doSearch();
-});
-
-// ─── Init ─────────────────────────────────────────────────────────────────────
-fetchIssues();

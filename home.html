@@ -16,18 +16,19 @@
 
 <body class="bg-gray-100 min-h-screen">
   <!-- Navbar -->
-  <nav class="bg-white shadow-sm px-4 py-3 flex items-center justify-between sticky top-0 z-50">
+  <nav
+    class="navbar bg-base-100 shadow-sm px-4 md:px-20 py-3 flex flex-wrap md:flex-nowrap justify-center md:justify-between items-center">
     <div class="flex items-center gap-2">
       <img src="./assets/github-logo.png" alt="GitHub" class="w-7 h-7">
-      <span class="font-bold text-gray-800 text-base">GitHub Issues Tracker</span>
+      <span class="font-semibold text-2xl">GitHub Issues Tracker</span>
     </div>
-    <div class="flex items-center gap-2">
-      <div class="relative">
-        <input id="searchInput" type="text" placeholder="Search issues..."
-          class="input input-bordered input-sm w-[300] rounded-sm pl-7 bg-gray-50" />
-        <i class="fa-solid fa-magnifying-glass absolute left-2 top-2.5 text-gray-400 text-xs"></i>
-      </div>
-      <button id="searchBtn" class="btn btn-sm btn-primary rounded-sm font-bold">+ New Issue</button>
+    <div class="flex gap-3">
+      <label class="input input-bordered flex items-center gap-2 input-btn">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" class="grow" placeholder="Search issues..." />
+      </label>
+      <button class="btn btn-primary inputValueBtn"><i class="fa-solid fa-plus"></i> New Issue</button>
+    </div>
     </div>
   </nav>
 
